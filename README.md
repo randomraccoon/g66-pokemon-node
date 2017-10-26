@@ -1,4 +1,4 @@
-![](https://github.com/gSchool/pokemon-node/blob/master/public/images/pokemon-logo.png)
+![](public/images/pokemon-logo.png)
 
 ## WELCOME to the Q2 Assessment!
 
@@ -348,19 +348,19 @@ exactly match, but it should look as good or preferably BETTER than the mockups:
 
 ## TRAINERS INDEX
 
-![Trainers - Index](https://github.com/gSchool/pokemon-node/blob/master/mockups/trainers-index.png)
+![Trainers - Index](mockups/trainers-index.png)
 
 ## TRAINERS SHOW PAGE /trainers/:id
 
-![Trainers - Show](https://github.com/gSchool/pokemon-node/blob/master/mockups/trainers-show.png)
+![Trainers - Show](mockups/trainers-show.png)
 
 ## POKEMÓN INDEX
 
-![Pokemon - Index](https://github.com/gSchool/pokemon-node/blob/master/mockups/pokemon-index.png)
+![Pokemon - Index](mockups/pokemon-index.png)
 
 ## GYM
 
-![Gym](https://github.com/gSchool/pokemon-node/blob/master/mockups/gym.png)
+![Gym](mockups/gym.png)
 
 
 ## How to Submit Your Assessment
