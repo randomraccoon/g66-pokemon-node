@@ -6,10 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 8000;
 
-var routes = require('./routes/index');
-var trainers = require('./routes/trainers');
-var pokemon = require('./routes/pokemon');
-
+var routes = require('./controllers/index');
+var trainers = require('./controllers/trainers');
+var pokemon = require('./controllers/pokemon');
 
 var app = express();
 var expressLayouts = require('express-ejs-layouts');
@@ -18,16 +17,12 @@ var expressLayouts = require('express-ejs-layouts');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
-
-
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use('/', routes);
 app.use('/trainers', trainers);
@@ -40,6 +35,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-app.listen(port, () => console.log('Heard on port ', port));
+app.listen(port, () => console.log(`It's port ${port} and ALLLLL'S WELLLLL!`));
 
 module.exports = app;

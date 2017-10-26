@@ -1,9 +1,11 @@
 {
   "name": "pokemon",
   "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
