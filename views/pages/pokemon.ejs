@@ -1,0 +1,59 @@
+<%- contentFor('body') %>
+
+<h3>Pokemón</h3>
+
+<form id="addPokemonForm" action="/pokemon" method="post" hidden></form>
+
+<table class="bordered highlight">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Trainer</th>
+    <th>CP</th>
+    <th>Gym</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
+    <% for (let p of pokemon) { %>
+      <tr id="<%= p.id %>">
+        <td><%= p.id %></td>
+        <td><%= p.name %></td>
+        <td><%= p.trainer %></td>
+        <td><%= p.cp %></td>
+        <td><%= p.in_gym %></td>
+        <td class="edit">
+          <i class="material-icons">edit</i>
+          <i class="material-icons">delete_forever</i></td>
+      </tr>
+    <% } %>
+    <tr>
+      <td></td>
+      <td><div class="input-field">
+        <input type="text" name="name" form="addPokemonForm">
+        <label>Pokemon Name</label>
+      </div></td>
+      <td><div class="input-field">
+        <select form="addPokemonForm" name="trainer_id">
+          <option selected disabled></option>
+          <% for (let t of trainers) { %>
+            <option value="<%= t.id %>"><%= t.name %> (has <%= t.pokemon_count %>)</option>
+          <% } %>
+        </select>
+        <label>Select Trainer</label>
+      </div></td>
+      <td>
+        <div class="input-field">
+          <input form="addPokemonForm" type="number" name="cp" value="1" min="1">
+          <label>CP</label>
+        </div></td>
+      <td></td>
+      <td><button class="btn" form="addPokemonForm" type="submit"><i class="material-icons">add</i></button></td>
+    </tr>
+  </tbody>
+</table>
+<div class="center-align">
+  <button class="btn blue darken-2 center-align" type="button" id="add_new"><i class="material-icons left">expand_less</i> Add new Pokemón</button>
+</div>
+
+
+<script type="text/javascript" src="/js/pokemon.js" defer></script>

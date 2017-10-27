@@ -1,0 +1,39 @@
+<%- contentFor('body') %>
+
+<h3>Trainers</h3>
+
+<form id="addTrainerForm" action="/trainers" method="post" hidden></form>
+
+<table class="bordered highlight">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Pokemon Count</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
+    <% for (let t of trainers) { %>
+      <tr id="<%= t.id %>">
+        <td><%= t.id %></td>
+        <td><%= t.name %></td>
+        <td><%= t.pokemon_count %></td>
+        <td class="edit">
+          <i class="material-icons">edit</i>
+          <i class="material-icons">delete_forever</i></td>
+      </tr>
+    <% } %>
+    <tr>
+      <td></td>
+      <td><div class="input-field">
+        <input type="text" name="name" form="addTrainerForm">
+        <label>Trainer Name</label>
+      </div></td>
+      <td><button class="btn" form="addTrainerForm" type="submit"><i class="material-icons">add</i></button></td>
+    </tr>
+  </tbody>
+</table>
+<div class="center-align">
+  <button class="btn blue darken-2 center-align" type="button" id="add_new"><i class="material-icons left">expand_less</i> Add new Trainer</button>
+</div>
+
+<script type="text/javascript" src="/js/trainers.js" defer></script>
