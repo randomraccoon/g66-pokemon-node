@@ -79,3 +79,8 @@ table > tbody > tr > td select
 {
     margin-bottom: 0 !important;
 }
+
+.error
+{
+    color: red;
+}

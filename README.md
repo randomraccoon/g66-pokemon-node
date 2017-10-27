@@ -69,7 +69,7 @@ __You should git add, commit, push, and deploy to Heroku after each story is com
 
 ### Pokemón and Pokemón CRUD
 
-__#1__
+~~__#1__~~
 
 ```
 As a user
@@ -77,7 +77,7 @@ When I go to the root route '/'
 Then I am redirected to `/pokemon`
 ```
 
-__#2__
+~~__#2__~~
 
 ```
 As a user
@@ -85,14 +85,14 @@ When I visit /pokemon
 Then I see a button to 'Add a New Pokemon'
 ```
 
-__#3__
+~~__#3__~~
 
 ```
 When I click the 'Add a New Pokemon' button
 Then I see a form to add a new Pokemon
 ```
 
-__#4__
+~~__#4__~~
 
 ```
 When I submit the form to add a new Pokemon
@@ -100,7 +100,7 @@ Then I am redirected to the Pokemon home page
 And I see my new Pokemon listed
 ```
 
-__#5__
+~~__#5__~~
 
 ```
 When I visit '/pokemon'
@@ -144,7 +144,7 @@ Then I am redirected to the show page for that Pokemón
 And I see all new details for my updated Pokemón
 ```
 
-__#9__
+~~__#9__~~
 
 ```
 When I visit the Pokemón home page
@@ -203,7 +203,7 @@ And I do NOT see a link 'assign to gym' next to that Pokemón
 
 ### Trainers
 
-__#1__
+~~__#1__~~
 
 ```
 As a user
