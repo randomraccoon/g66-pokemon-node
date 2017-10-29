@@ -14,5 +14,6 @@ exports.seed = function(knex, Promise) {
       {name: "Flenser", species_id: 162, cp: 99, trainer_id: 3},
       {name: "Baaaahhb", species_id: 179, cp: 19, trainer_id: 4},
       {name: "Tammy", species_id: 218, cp: 22, trainer_id: 4}
-    ]);
+    ])
+  );
 };
