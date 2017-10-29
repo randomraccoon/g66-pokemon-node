@@ -803,6 +803,7 @@ exports.seed = function(knex, Promise) {
 { id: 799, name: 'Guzzlord', description: 'Junkivore', image_name: 'guzzlord' },
 { id: 800, name: 'Necrozma', description: 'Prism', image_name: 'necrozma' },
 { id: 801, name: 'Magearna', description: 'Artificial', image_name: 'magearna' },
-{ id: 802, name: 'Marshadow', description: 'Gloomdweller', image_name: 'marshadow' }      ]);
+{ id: 802, name: 'Marshadow', description: 'Gloomdweller', image_name: 'marshadow' }
+      ]);
     });
 };
