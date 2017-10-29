@@ -8,6 +8,12 @@ exports.up = (knex, Promise) => {
      .inTable('trainers')
      .onDelete('CASCADE')
      .index();
+    table.integer('species_id')
+     .notNullable()
+     .references('id')
+     .inTable('species')
+     .onDelete('CASCADE')
+     .index();
     table.integer('cp').notNullable();
     table.boolean('in_gym').notNullable().defaultTo('false');
     table.timestamps(true, true);
@@ -15,5 +21,5 @@ exports.up = (knex, Promise) => {
 };
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('pokemon');
+  return knex.schema.dropTableIfExists('pokemon');
 };
