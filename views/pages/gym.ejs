@@ -1,13 +1,11 @@
 <%- contentFor('body') %>
 
-<script type="text/javascript" src="/js/gym.js" defer></script>
-
 <div class="title-container" text="Gym"></div>
 
 <div id="battle-slots">
   <% for (let i = 0; i < players.length; i++ ) { let p = players[i]; %>
     <div class="fighter center-align">
-      <% if (p.id) { %>
+      <% if (p && p.id) { %>
         <img
         <% if (+p.species_id <= 721) { %>
           src="http://www.pokestadium.com/sprites/xy/<%= p.image_name %>.gif"
@@ -33,13 +31,30 @@
       <% } %>
     </div>
     <% if (i === 0) { %>
-      <div class="filler valign-wrapper center-align"><h3 class="center-align">vs.</h3></div>
+      <div id="filler" class="valign-wrapper center-align"><h3 class="center-align">vs.</h3></div>
     <% } %>
   <% } %>
 </div>
-<% if (players[0].id && players[1].id) { %>
-<button class="btn red" type="button">Battle</button>
+<% if (players[0] && players[1] && players[0].id && players[1].id) { %>
+<button id="battle-button" class="btn red" type="button" onclick="battle()">Battle</button>
 <% } %>
-<% if (players[0].id || players[1].id) { %>
-<button class="btn blue" type="button">Reset</button>
+<% if (players[0] && players[1] && (players[0].id || players[1].id)) { %>
+<button class="btn blue" type="button" onclick="gymReset()">Reset</button>
+<div id="player1Win" style="display:none;">
+  <h2><%= players[0].name %> WINNER!!!</h2>
+</div>
+<div id="player2Win" style="display:none;">
+  <h2><%= players[1].name %> WINNER!!!</h2>
+</div>
+<div id="draw" style="display:none;">
+  <h2>Equal match. Neither wins!</h2>
+</div>
 <% } %>
+
+
+
+<script type="text/javascript">
+  let players = <%- JSON.stringify(players) %>;
+</script>
+
+<script type="text/javascript" src="/js/gym.js" defer></script>

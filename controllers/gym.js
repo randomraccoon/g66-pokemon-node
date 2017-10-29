@@ -89,5 +89,26 @@ module.exports = {
           res.redirect('/error');
         });
       });
+  },
+
+  reset: function(req, res) {
+    knex('pokemon')
+      .update({
+        in_gym: false
+      })
+      .then(result=>{
+        req.session.p1 = null;
+        req.session.p2 = null;
+        req.session.save(err => {
+          res.redirect('/gym');
+        });
+      })
+      .catch(err => {
+        req.session.error = "Could not reset gym.";
+        req.session.message = err.toString();
+        req.session.save(err => {
+          res.redirect('/error');
+        });
+      });
   }
 }

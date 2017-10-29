@@ -39,6 +39,8 @@ module.exports = function(app){
 
   app.get('/gym', gym.index);
 
+  app.get('/gym/reset', gym.reset);
+
   app.get('/pokedex', main.pokedex);
 
   app.use(main['404']);
