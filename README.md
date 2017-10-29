@@ -11,9 +11,9 @@ __Stay calm and code on!__
 
 ## Assessment Overview
 
-**Pokemón Node** is an app where a user can manage trainers and their corresponding
-Pokemón to battle in a gym. Users should be able to CREATE, READ, UPDATE, and DELETE Pokemón,
-as well as assign Pokemón to the gym (details below).
+**Pokémon Node** is an app where a user can manage trainers and their corresponding
+Pokémon to battle in a gym. Users should be able to CREATE, READ, UPDATE, and DELETE Pokémon,
+as well as assign Pokémon to the gym (details below).
 
 Your app should look at _least_ as good as the wireframes, preferably better.
 
@@ -67,9 +67,9 @@ knex seed:run
 
 __You should git add, commit, push, and deploy to Heroku after each story is completed__
 
-### Pokemón and Pokemón CRUD
+### Pokémon and Pokémon CRUD
 
-~~__#1__~~
+~~__#1__~~ COMPLETE
 
 ```
 As a user
@@ -77,7 +77,7 @@ When I go to the root route '/'
 Then I am redirected to `/pokemon`
 ```
 
-~~__#2__~~
+~~__#2__~~ COMPLETE
 
 ```
 As a user
@@ -85,14 +85,14 @@ When I visit /pokemon
 Then I see a button to 'Add a New Pokemon'
 ```
 
-~~__#3__~~
+~~__#3__~~ COMPLETE
 
 ```
 When I click the 'Add a New Pokemon' button
 Then I see a form to add a new Pokemon
 ```
 
-~~__#4__~~
+~~__#4__~~ COMPLETE
 
 ```
 When I submit the form to add a new Pokemon
@@ -100,69 +100,69 @@ Then I am redirected to the Pokemon home page
 And I see my new Pokemon listed
 ```
 
-~~__#5__~~
+~~__#5__~~ COMPLETE
 
 ```
 When I visit '/pokemon'
-Then I see a list of all Pokemón and their properties
+Then I see a list of all Pokémon and their properties
 And I see a link to DELETE
 And I see a link to EDIT
 ```
 
-__#6__
+~~__#6__~~ COMPLETE
 
 ```
-When I visit the Pokemón home page
-And I see all Pokemón
-When I click on a Pokemón name
+When I visit the Pokémon home page
+And I see all Pokémon
+When I click on a Pokémon name
 Then I am taken to a show page
-And I see all the properties for that Pokemón
-And I see the name of that Pokemón's trainer
+And I see all the properties for that Pokémon
+And I see the name of that Pokémon's trainer
 ```
 __wireframe not shown, implement your own ideas.__
 
-__#7__
+~~__#7__~~ COMPLETE
 
-Trainers can acquire Pokemón that will belong exclusively to them.
-One trainer can have many Pokemón, but each Pokemón belongs to only one trainer.
+Trainers can acquire Pokémon that will belong exclusively to them.
+One trainer can have many Pokémon, but each Pokémon belongs to only one trainer.
 
 ```
-When I visit the Pokemón home page
-And I see all Pokemón
-And I click the 'EDIT' link for a Pokemón
+When I visit the Pokémon home page
+And I see all Pokémon
+And I click the 'EDIT' link for a Pokémon
 Then I am taken to a form
-And the form is prefilled with information for that Pokemón
-And I see the name of that Pokemón's trainer
+And the form is prefilled with information for that Pokémon
+And I see the name of that Pokémon's trainer
 And that name is in a drop down menu that also has the names of all the other trainers
 ```
 
-__#8__
+~~__#8__~~ COMPLETE
 
 ```
-When I submit an edit form for a Pokemón
-Then I am redirected to the show page for that Pokemón
-And I see all new details for my updated Pokemón
+When I submit an edit form for a Pokémon
+Then I am redirected to the show page for that Pokémon
+And I see all new details for my updated Pokémon
 ```
 
-~~__#9__~~
+~~__#9__~~ COMPLETE
 
 ```
-When I visit the Pokemón home page
-And I see all Pokemón
-And I click the 'DELETE' link for a Pokemón
-Then I am redirected to the Pokemón home page
-And that Pokemón is no longer listed
+When I visit the Pokémon home page
+And I see all Pokémon
+And I click the 'DELETE' link for a Pokémon
+Then I am redirected to the Pokémon home page
+And that Pokémon is no longer listed
 ```
 
 
 _OVERVIEW of STORY # 10_
 
-* You will be using cookies to keep track of which Pokemón are in the 'gym'.
+* You will be using cookies to keep track of which Pokémon are in the 'gym'.
 * You will use cookies to set the values `p1` and `p2` to be the `id `of the two
-respective Pokemón in the gym.
-* The gym should only hold two Pokemón.
-* When you visit the Pokemón home page, if either the `p1` or `p2` cookies is not set,
-then you can click 'assign to gym' next to a Pokemón and they will be
+respective Pokémon in the gym.
+* The gym should only hold two Pokémon.
+* When you visit the Pokémon home page, if either the `p1` or `p2` cookies is not set,
+then you can click 'assign to gym' next to a Pokémon and they will be
 'assigned to the gym' (i.e. their id will be assigned to either `p1` or `p2`)
 * and their 'in_gym' status in the database will be updated to `true`
 
@@ -171,39 +171,39 @@ __EXAMPLE:__ If you have a Raichu with an id of 22 in the database and you click
 
 
 __NOTE:__ Your database should _always_ be updated to have the current `in_gym`
-status of _all_ Pokemón.
+status of _all_ Pokémon.
 
 __#10__
 
 ```
 As a user
-When I visit the Pokemón home page
-And I see all Pokemón
-And less than 2 Pokemón are 'in the gym'
-Then I see a link 'assign to gym' next to every Pokemón that is not 'in the gym'
+When I visit the Pokémon home page
+And I see all Pokémon
+And less than 2 Pokémon are 'in the gym'
+Then I see a link 'assign to gym' next to every Pokémon that is not 'in the gym'
 ```
 
 __#11__
 
 ```
-When I visit the Pokemón home page
-And I see all Pokemón
-And there are already 2 Pokemón 'in the gym'
-Then I do not see 'assign to gym' links for any other Pokemón
+When I visit the Pokémon home page
+And I see all Pokémon
+And there are already 2 Pokémon 'in the gym'
+Then I do not see 'assign to gym' links for any other Pokémon
 ```
 __#12__
 
 ```
-When I go to the Pokemón home page
-And I see all Pokemón
-And a Pokemón is 'in the gym'
-Then I see a link 'remove from gym' next to that Pokemón
-And I do NOT see a link 'assign to gym' next to that Pokemón
+When I go to the Pokémon home page
+And I see all Pokémon
+And a Pokémon is 'in the gym'
+Then I see a link 'remove from gym' next to that Pokémon
+And I do NOT see a link 'assign to gym' next to that Pokémon
 ```
 
 ### Trainers
 
-~~__#1__~~
+~~__#1__~~ COMPLETE
 
 ```
 As a user
@@ -227,55 +227,55 @@ __#1__
 ```
 As a user
 When I visit the gym home page
-And there are no Pokemón assigned to the gym
-Then I can select a Pokemón1 from a drop down menu that has all Pokemón names
-And I can select a Pokemón2 from a drop down menu that has all Pokemón names
+And there are no Pokémon assigned to the gym
+Then I can select a Pokémon1 from a drop down menu that has all Pokémon names
+And I can select a Pokémon2 from a drop down menu that has all Pokémon names
 ```
 
 __#2__
 
 ```
 When I visit the gym home page
-And there are no Pokemón assigned to the gym
-And I select a Pokemón1 from a drop down menu that has all Pokemón names
-And I select a Pokemón2 from a drop down menu that has all Pokemón names
-When I click 'Add Pokemón to the Gym'
+And there are no Pokémon assigned to the gym
+And I select a Pokémon1 from a drop down menu that has all Pokémon names
+And I select a Pokémon2 from a drop down menu that has all Pokémon names
+When I click 'Add Pokémon to the Gym'
 Then I am redirected to the gym home page
-And I see my Pokemón 'in the gym'
+And I see my Pokémon 'in the gym'
 ```
 
 __#3__
 
 ```
 When I visit the gym home page
-And only one Pokemón is 'in the gym'
-Then I see a Pokemón name in the Pokemón1 slot
-And by the Pokemón2 slot I see a dropdown menu with all Pokemón names
+And only one Pokémon is 'in the gym'
+Then I see a Pokémon name in the Pokémon1 slot
+And by the Pokémon2 slot I see a dropdown menu with all Pokémon names
 ```
 
 __#4__
 
 ```
 When I visit the gym home page
-And only one Pokemón is 'in the gym'
-And I select a second Pokemón name from a dropdown menu
-And I click the 'Add Pokemón to the Gym' button
+And only one Pokémon is 'in the gym'
+And I select a second Pokémon name from a dropdown menu
+And I click the 'Add Pokémon to the Gym' button
 Then I am redirected to the gym home page
-And I see a Pokemón in the Pokemón1 slot
-And I see my selected Pokemón in the Pokemón2 slot
+And I see a Pokémon in the Pokémon1 slot
+And I see my selected Pokémon in the Pokémon2 slot
 ```
 
 __#5__
 
 ```
 When I visit the gym home page
-And only one Pokemón is 'in the gym'
-And I select a second Pokemón name from a dropdown menu
-And that Pokemón is the SAME Pokemón already in a slot
+And only one Pokémon is 'in the gym'
+And I select a second Pokémon name from a dropdown menu
+And that Pokémon is the SAME Pokémon already in a slot
 Then the gym home page is rendered again
 And I a see an error message
 And that error message says
-"A Pokemón cannot fight itself! Please choose a different Pokemón!"
+"A Pokémon cannot fight itself! Please choose a different Pokémon!"
 And that message is the color red
 ```
 
@@ -283,16 +283,16 @@ __#6__
 
 ```
 When I visit the gym home page
-And 2 Pokemón are 'in the gym'
-Then I see a Pokemón name in the Pokemón1 slot
-And I see a Pokemón name in the Pokemón2 slot
+And 2 Pokémon are 'in the gym'
+Then I see a Pokémon name in the Pokémon1 slot
+And I see a Pokémon name in the Pokémon2 slot
 ```
 
 __#7__
 
 ```
 When I visit the gym home page
-And two Pokemón are already in the gym
+And two Pokémon are already in the gym
 Then I see a 'battle' button
 ```
 
@@ -300,7 +300,7 @@ __#8__
 
 ```
 When I visit the gym home page
-And only one Pokemón is in the gym
+And only one Pokémon is in the gym
 Then I do not see the 'battle' button
 ```
 
@@ -308,13 +308,13 @@ __#9__
 
 ```
 When I visit the gym home page
-And two Pokemón are already in the gym
+And two Pokémon are already in the gym
 And I click the 'battle' button
-Then the Pokemón with the higher Combat Power 'wins' the fight
-And the winning Pokemón's name is displayed on the page next to the word 'WINNER!'
+Then the Pokémon with the higher Combat Power 'wins' the fight
+And the winning Pokémon's name is displayed on the page next to the word 'WINNER!'
 ```
 __HINT:__ Would it be simpler if all the data you need is passed in to the view
-when the page loads (before the user clicks the button?)? HOWEVER, a Pokemón's
+when the page loads (before the user clicks the button?)? HOWEVER, a Pokémon's
 Combat Power should NOT be stored in the cookie. You will need to get that info
 from the database.
 
@@ -323,7 +323,7 @@ __#10__
 ```
 When I visit the gym home page
 And I click the 'reset' button (or link)
-Then all the Pokemón are removed from the gym
+Then all the Pokémon are removed from the gym
 ```
 
 ### Stretch Goals
@@ -332,16 +332,16 @@ __#1__
 
 ```
 As a user
-When I make 2 Pokemón battle
+When I make 2 Pokémon battle
 Then the winner's CP is incremented by 20
 ```
 
 __#2__
 
-* Write a migration that adds an image field to the Pokemón table that takes an
+* Write a migration that adds an image field to the Pokémon table that takes an
 image url.
 
-* Display the image on both the gym and the Pokemón index page.
+* Display the image on both the gym and the Pokémon index page.
 
 
 ## WIREFRAMES
@@ -357,7 +357,7 @@ exactly match, but it should look as good or preferably BETTER than the mockups:
 
 ![Trainers - Show](mockups/trainers-show.png)
 
-## POKEMÓN INDEX
+## Pokémon INDEX
 
 ![Pokemon - Index](mockups/pokemon-index.png)
 

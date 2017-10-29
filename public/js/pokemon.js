@@ -1,5 +1,6 @@
-const icon = $('#add_new i');
-const addPokemonForm = $('table > tbody > tr:last-child');
+const addBtnText = $('#add_new > span');
+const icon = $('#add_new > i');
+const addPokemonForm = $('.form-row');
 
 $(document).ready(() => {
   $('.nav-wrapper > ul > li:nth-child(2)').addClass('active');
@@ -10,30 +11,46 @@ $(document).ready(() => {
   $('td.edit > i:first-child').click(editPokemon);
   $('td.edit > i:last-child').click(deletePokemon);
 
-  toggleForm();
+  let autocompleteData = {};
+
+  for (let s of species) {
+    autocompleteData[`${s.id}. ${s.name} (${s.description})`] = null;
+  }
+
+  $('input.autocomplete').autocomplete({
+    data: autocompleteData,
+    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {},
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
 });
 
 function toggleForm() {
-  icon.text((icon.text() === 'expand_more') ? 'expand_less' : 'expand_more');
-  addPokemonForm.toggle();
+  if (icon.text() === 'expand_more') {
+    icon.text('expand_less');
+    addBtnText.text('Hide');
+    addPokemonForm.show();
+    addPokemonForm.find('input[name="name"]').focus();
+  } else {
+    icon.text('expand_more');
+    addBtnText.text('Add new Pokémon');
+    addPokemonForm.hide();
+  }
 };
 
 function viewPokemon(ev) {
   let pokemonId = ev.target.parentNode.id;
-  // console.log('view pokemon', pokemonId);
   window.location.href = `/pokemon/${pokemonId}`;
 }
 
 function editPokemon(ev) {
   ev.stopPropagation();
   let pokemonId = ev.target.parentNode.parentNode.id;
-  // console.log('edit pokemon', pokemonId);
   window.location.href = `/pokemon/edit/${pokemonId}`;
 }
 
 function deletePokemon(ev) {
   ev.stopPropagation();
   let pokemonId = ev.target.parentNode.parentNode.id;
-  // console.log('delete pokemon', pokemonId);
   window.location.href = `/pokemon/del/${pokemonId}`;
 }

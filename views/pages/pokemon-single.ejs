@@ -1,0 +1,87 @@
+<%- contentFor('body') %>
+
+<% if (error || message) { %>
+  <% include ../partials/error %>
+<% } %>
+
+<div class="title-container" text="<%= pokemon.name %>"></div>
+
+<img
+<% if (+pokemon.species_id <= 721) { %>
+  src="http://www.pokestadium.com/sprites/xy/<%= pokemon.image_name %>.gif"
+<% } else { %>
+  src="https://img.pokemondb.net/sprites/sun-moon/dex/normal/<%= pokemon.image_name %>.png"
+<% } %>
+alt="pokemon.species">
+
+<div class="info">
+  <table id="pokemon-info" class="bordered highlight">
+    <tbody>
+      <tr href="/pokemon#<%= pokemon.id %>">
+        <td>Database ID</td>
+        <td><%= pokemon.id %></td>
+      </tr>
+
+      <tr href="/trainers/<%= pokemon.trainer_id %>">
+        <td>Trainer</td>
+        <td><%= pokemon.trainer %></td>
+      </tr>
+
+      <tr>
+        <td>CP</td>
+        <td><%= pokemon.cp %></td>
+      </tr>
+
+      <tr href="/pokedex#<%= pokemon.species_id %>">
+        <td>Species</td>
+        <td><%= pokemon.species %></td>
+      </tr>
+
+      <tr>
+        <td href="/pokedex#<%= pokemon.species_id %>">Pokédex Number</td>
+        <td><%= pokemon.species_id %></td>
+      </tr>
+      <tr>
+        <td href="/pokedex#<%= pokemon.species_id %>">Species Description</td>
+        <td><%= pokemon.description %></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn blue" id="edit" type="button"><i class="material-icons left">edit</i>Edit</button>
+  <button class="btn red" id="delete" type="button"><i class="material-icons left">delete_forever</i>Delete</button>
+</div>
+
+
+
+
+<form id="edit-form" action="/pokemon/<%= pokemon.id %>"  method="post" onsubmit="return validate()">
+  <div class="input-field">
+    <input class="validate" type="text" name="name" form="edit-form" pattern='\w+'value="<%= pokemon.name %>" required>
+    <label for="name" data-error="Required">Name</label>
+  </div>
+  <div class="input-field">
+    <input type="text" id="autocomplete-input" class="autocomplete validate" name="species" form="edit-form" value="<%= pokemon.species_id%>. <%= pokemon.species %> (<%= pokemon.description %>)" pattern='^\d+. .+ \(.+\)$' required>
+    <label for="species" data-error="Select from Autocomplete List">Species</label>
+  </div>
+  <div class="input-field">
+    <select name="trainer_id">
+      <% for (let t of trainers) { %>
+        <option value="<%= t.id %>"<%= (t.name === pokemon.trainer) ? " selected" : "" %>><%= t.name %></option>
+      <% } %>
+    </select>
+    <label for="trainer_id">Trainer</label>
+  </div>
+  <div class="input-field">
+    <input class="validate" form="edit-form" type="number" name="cp" value="<%= pokemon.cp %>" min="1" required>
+    <label for="cp">CP</label>
+  </div>
+  <button class="btn white grey-text" type="button" onclick="toggleForm();">Cancel</button>
+  <button class="btn" type="submit" form="edit-form">Submit</button>
+</form>
+
+<script type="text/javascript">
+  const species = <%- species ? JSON.stringify(species) : false %>;
+  const pokemon = <%- pokemon ? JSON.stringify(pokemon) : false %>;
+  let editMode = <%- editMode ? editMode : false %>;
+</script>
+<script type="text/javascript" src="/js/pokemon-single.js" defer></script>

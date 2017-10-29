@@ -1,5 +1,41 @@
-body
+/*html
 {
+    background: url(../images/ball_background_opaque.png) no-repeat center center;
+    background-size: cover;
+}*/
+
+#bg
+{
+    position: fixed;
+    z-index: 0;
+    top: -50%;
+    left: -50%;
+
+    width: 200%;
+    height: 200%;
+}
+#bg img
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    min-width: 50%;
+    min-height: 50%;
+    margin: auto;
+}
+
+#webpage
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -9,6 +45,10 @@ body
         flex-direction: column;
 
     min-height: 100vh;
+}
+
+body
+{
     margin: 0;
 }
 
@@ -17,9 +57,6 @@ main
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
         flex: 1 0 auto;
-
-    background: url(../images/ball_background_opaque.png) no-repeat center center;
-    background-size: cover;
 }
 
 footer.page-footer
@@ -36,11 +73,13 @@ footer.page-footer
 
 div.content
 {
+    display: inline-block;
+
     margin: 20px;
     padding: 10px;
 
     border-radius: 10px;
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255,255,255,.8);
 }
 
 table > tbody > tr:hover
@@ -56,12 +95,17 @@ i
             transform: scale(1.5);
 }
 
-td.edit > i:hover
+tbody > tr > td.edit > i:hover
 {
     -webkit-transform: scale(2);
             transform: scale(2);
 
-    opacity: 1;
+    opacity: 1 ;
+}
+
+tr:hover > td.edit > i
+{
+    opacity: .5;
 }
 
 td.edit > i
@@ -77,10 +121,93 @@ td.edit > i:last-child
 table > tbody > tr > td input,
 table > tbody > tr > td select
 {
-    margin-bottom: 0 !important;
+    /*margin-bottom: 10px !important;*/
 }
 
 .error
 {
     color: red;
+}
+
+table > tbody > tr > td:first-child
+{
+    padding: 0;
+}
+
+select[required]
+{
+    display: block;
+
+    width: 0;
+    height: 0;
+    margin-top: -15px;
+    padding: 0;
+}
+
+table > tbody > tr > td > img
+{
+    max-height: 100px;
+}
+
+table#pokemon-info > tbody > tr > td:first-child
+{
+    font-weight: bold;
+
+    text-align: right;
+}
+
+table#pokemon-info > tbody > tr > td:first-child::after
+{
+    content: ' - ';
+}
+
+.form-row
+{
+    display: none;
+}
+
+/*Just in case you're wondering, I wrote this.*/
+
+div.title-container
+{
+    font-size: 5em;
+
+    display: inline-block;
+
+    margin: 0 auto;
+}
+
+div.title-container::before
+{
+    font-family: 'pokemon-hollow', sans-serif;
+
+    position: absolute;
+
+    margin-top: 3px;
+
+    content: attr(text);
+
+    color: rgb(38, 95, 189);
+}
+
+div.title-container::after
+{
+    font-family: 'pokemon-solid', sans-serif;
+
+    content: attr(text);
+
+    color: rgb(255, 202, 43);
+}
+
+@font-face
+{
+    font-family: 'pokemon-hollow';
+
+    src: url('../fonts/Pokemon-Hollow.ttf')  format('truetype');
+}
+@font-face
+{
+    font-family: 'pokemon-solid';
+
+    src: url('../fonts/Pokemon-solid.ttf')  format('truetype');
 }

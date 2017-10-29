@@ -5,11 +5,17 @@ const gym = require("../controllers/gym.js");
 
 module.exports = function(app){
 
+  app.use(log);
+
   app.get('/', pokemon.viewAll);
 
   app.get('/pokemon', pokemon.viewAll);
 
   app.post('/pokemon', pokemon.create);
+
+  app.get('/pokemon/:id', pokemon.viewOne);
+
+  app.get('/pokemon/edit/:id', pokemon.editPage);
 
   app.post('/pokemon/:id', pokemon.update);
 
@@ -19,13 +25,20 @@ module.exports = function(app){
 
   app.post('/trainers', trainers.create);
 
-  app.post('/trainers/:id', pokemon.update);
+  // app.post('/trainers/:id', trainers.update);
 
-  app.get('/trainers/del/:id', pokemon.delete);
+  app.get('/trainers/del/:id', trainers.delete);
 
   app.get('/gym', gym.index);
 
   app.get('/error', main.error);
 
+  app.get('/pokedex', main.pokedex);
+
   app.use(main['404']);
+}
+
+function log(req, res, next) {
+  console.log("Routing to", req.originalUrl);
+  next();
 }

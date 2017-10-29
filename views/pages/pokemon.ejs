@@ -1,13 +1,18 @@
 <%- contentFor('body') %>
 
-<h3>Pokemón</h3>
+<% if (error || message) { %>
+  <% include ../partials/error %>
+<% } %>
+<div class="title-container" text="Pokémon"></div>
+
 
 <form id="addPokemonForm" action="/pokemon" method="post" hidden></form>
 
 <table class="bordered highlight">
   <thead>
-    <th>ID</th>
+    <th><!-- Sprite --></th>
     <th>Name</th>
+    <th><span class="hide-on-small-only">Species</span></th>
     <th>Trainer</th>
     <th>CP</th>
     <th>Gym</th>
@@ -16,8 +21,16 @@
   <tbody>
     <% for (let p of pokemon) { %>
       <tr id="<%= p.id %>">
-        <td><%= p.id %></td>
+
+        <td class="center-align"><img class="hide-on-small-only"
+          <% if (+p.species_id <= 721) { %>
+           src="http://www.pokestadium.com/sprites/xy/<%= p.image_name %>.gif"
+           <% } else { %>
+             src="https://img.pokemondb.net/sprites/sun-moon/dex/normal/<%= p.image_name %>.png"
+           <% } %>
+            alt="<%= p.species %>"></td>
         <td><%= p.name %></td>
+        <td><span class="hide-on-small-only"><%= p.species %></span></td>
         <td><%= p.trainer %></td>
         <td><%= p.cp %></td>
         <td><%= p.in_gym %></td>
@@ -26,25 +39,29 @@
           <i class="material-icons">delete_forever</i></td>
       </tr>
     <% } %>
-    <tr>
-      <td></td>
+    <tr class="form-row">
+      <td><!-- Sprite --></td>
       <td><div class="input-field">
-        <input type="text" name="name" form="addPokemonForm">
-        <label>Pokemon Name</label>
+        <input class="validate" type="text" name="name" form="addPokemonForm" required>
+        <label for="name" data-error="Required">Pokemon Name</label>
       </div></td>
       <td><div class="input-field">
-        <select form="addPokemonForm" name="trainer_id">
-          <option selected disabled></option>
+        <i class="material-icons prefix">textsms</i>
+        <input type="text" id="autocomplete-input" class="autocomplete validate" name="species" form="addPokemonForm" pattern='^\d+. .+ \(.+\)$' required>
+        <label for="species">Species</label>
+      </div></td>
+      <td><div class="input-field">
+        <select class="validate" form="addPokemonForm" name="trainer_id" pattern="^\d+$" required>
+          <option value="" selected disabled></option>
           <% for (let t of trainers) { %>
             <option value="<%= t.id %>"><%= t.name %> (has <%= t.pokemon_count %>)</option>
           <% } %>
         </select>
-        <label>Select Trainer</label>
+        <label for="trainer_id" data-error="Select from List">Select Trainer</label>
       </div></td>
-      <td>
-        <div class="input-field">
-          <input form="addPokemonForm" type="number" name="cp" value="1" min="1">
-          <label>CP</label>
+      <td><div class="input-field">
+          <input class="validate" form="addPokemonForm" type="number" name="cp" value="1" min="1" required>
+          <label for="cp" data-error="Stop hacking.">CP</label>
         </div></td>
       <td></td>
       <td><button class="btn" form="addPokemonForm" type="submit"><i class="material-icons">add</i></button></td>
@@ -52,8 +69,10 @@
   </tbody>
 </table>
 <div class="center-align">
-  <button class="btn blue darken-2 center-align" type="button" id="add_new"><i class="material-icons left">expand_less</i> Add new Pokemón</button>
+  <button class="btn blue darken-2 center-align" type="button" id="add_new"><i class="material-icons left">expand_more</i><span>Add new Pokémon</span></button>
 </div>
 
-
+<script type="text/javascript">
+  const species = <%- JSON.stringify(species) %>;
+</script>
 <script type="text/javascript" src="/js/pokemon.js" defer></script>

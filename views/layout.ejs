@@ -16,37 +16,45 @@
   </head>
   <body>
 
-  <nav>
-    <div class="nav-wrapper white">
-      <a href="/" class="brand-logo left"><img class="pokemon-logo-image" src="/images/pokemon-logo.png"></a>
-      <ul id="nav-mobile" class="right hide-on-small-only">
-        <li><a href="/trainers" class="grey-text text-darken-2">Trainers</a></li>
-        <li><a href="/pokemon" class="grey-text text-darken-2">Pokemón</a></li>
-        <li><a href="/gym" class="grey-text text-darken-2">Gym</a></li>
-      </ul>
-      <a class='dropdown-button btn-floating btn-large blue darken-3 right hide-on-med-and-up' href='#' data-activates='nav-dropdown'><i class="material-icons">menu</i></a>
+  <div id="bg">
+    <img src="/images/ball_background_opaque.png" alt="">
+  </div>
 
-      <!-- Dropdown Structure -->
-      <ul id='nav-dropdown' class='dropdown-content'>
-        <li><a href="/trainers" class="grey-text text-darken-2">Trainers</a></li>
-        <li><a href="/pokemon" class="grey-text text-darken-2 active">Pokemón</a></li>
-        <li><a href="/gym" class="grey-text text-darken-2">Gym</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div id="webpage">
+    <nav>
+      <div class="nav-wrapper white">
+        <a href="/pokedex" class="brand-logo left"><img class="pokemon-logo-image" src="/images/pokemon-logo.png"></a>
+        <ul id="nav-mobile" class="right hide-on-small-only">
+          <li><a href="/trainers" class="grey-text text-darken-2">Trainers</a></li>
+          <li><a href="/pokemon" class="grey-text text-darken-2">Pokémon</a></li>
+          <li><a href="/gym" class="grey-text text-darken-2">Gym</a></li>
+        </ul>
+        <a class='dropdown-button btn-floating btn-large blue darken-3 right hide-on-med-and-up' href='#' data-activates='nav-dropdown'><i class="material-icons">menu</i></a>
 
-  <main>
-    <div class="content">
-      <%- body %>
-    </div>
-  </main>
-
-  <footer class="page-footer white">
-    <div class="footer-copyright">
-      <div class="container grey-text text-darken-2">
-        Muddled through by <a href="https://github.com/randomraccoon">Cameron</a> 2017
+        <!-- Dropdown Structure -->
+        <ul id='nav-dropdown' class='dropdown-content'>
+          <li><a href="/trainers" class="grey-text text-darken-2">Trainers</a></li>
+          <li><a href="/pokemon" class="grey-text text-darken-2 active">Pokémon</a></li>
+          <li><a href="/gym" class="grey-text text-darken-2">Gym</a></li>
+        </ul>
       </div>
-    </div>
-  </footer>
+    </nav>
+
+    <main>
+      <div class="center-align">
+        <div class="content">
+          <%- body %>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer white">
+      <div class="footer-copyright">
+        <div class="container grey-text text-darken-2">
+          Muddled through by <a href="https://github.com/randomraccoon">Cameron</a> 2017
+        </div>
+      </div>
+    </footer>
+  </div>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <%- contentFor('body') %>
 
-<h3>Trainers</h3>
+<div class="title-container" text="Trainers"></div>
 
 <form id="addTrainerForm" action="/trainers" method="post" hidden></form>
 
@@ -16,7 +16,7 @@
       <tr id="<%= t.id %>">
         <td><%= t.id %></td>
         <td><%= t.name %></td>
-        <td><%= t.pokemon_count %></td>
+        <td class="center-align"><%= t.pokemon_count %></td>
         <td class="edit">
           <i class="material-icons">edit</i>
           <i class="material-icons">delete_forever</i></td>

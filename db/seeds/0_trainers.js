@@ -4,10 +4,11 @@ exports.seed = function(knex, Promise) {
     knex('trainers').del(),
 
     // Inserts seed entries
-    knex('trainers').insert({name: "Markel" }),
-    knex('trainers').insert({name: "Jacob" }),
-    knex('trainers').insert({name: "Ella" }),
-    knex('trainers').insert({name: "Valencia" })
-
+    knex('trainers').insert([
+      {name: "Markel" },
+      {name: "Jacob" },
+      {name: "Ella" },
+      {name: "Valencia" }
+    ])
   );
 };

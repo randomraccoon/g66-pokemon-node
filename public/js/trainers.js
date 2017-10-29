@@ -21,19 +21,19 @@ function toggleForm() {
 function viewTrainer(ev) {
   let trainerId = ev.target.parentNode.id;
   // console.log('view trainer', trainerId);
-  window.location.href = `/trainer/${trainerId}`;
+  window.location.href = `/trainers/${trainerId}`;
 }
 
 function editTrainer(ev) {
   ev.stopPropagation();
   let trainerId = ev.target.parentNode.parentNode.id;
   // console.log('edit trainer', trainerId);
-  window.location.href = `/trainer/edit/${trainerId}`;
+  window.location.href = `/trainers/edit/${trainerId}`;
 }
 
 function deleteTrainer(ev) {
   ev.stopPropagation();
   let trainerId = ev.target.parentNode.parentNode.id;
   // console.log('delete trainer', trainerId);
-  window.location.href = `/trainer/del/${trainerId}`;
+  window.location.href = `/trainers/del/${trainerId}`;
 }
