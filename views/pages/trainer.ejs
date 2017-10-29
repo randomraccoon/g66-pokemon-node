@@ -1,0 +1,49 @@
+<%- contentFor('body') %>
+
+<% if (error || message) { %>
+  <% include ../partials/error %>
+<% } %>
+
+<div class="title-container" text="<%= trainer.name %>"></div>
+
+<table class="bordered highlight">
+  <thead>
+    <th><!-- Sprite --></th>
+    <th>Name</th>
+    <th><span class="hide-on-small-only">Species</span></th>
+    <th>CP</th>
+    <th>Gym</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
+    <% for (let p of pokemon) { %>
+      <tr id="<%= p.id %>">
+        <td class="center-align"><img class="hide-on-small-only"
+          <% if (+p.species_id <= 721) { %>
+           src="http://www.pokestadium.com/sprites/xy/<%= p.image_name %>.gif"
+           <% } else { %>
+             src="https://img.pokemondb.net/sprites/sun-moon/dex/normal/<%= p.image_name %>.png"
+           <% } %>
+            alt="<%= p.species %>"></td>
+        <td><%= p.name %></td>
+        <td><span class="hide-on-small-only"><%= p.species %></span></td>
+        <td><%= p.cp %></td>
+        <td>
+        <% if (p.in_gym) { %>
+          <span>Yes</span><i class="material-icons right gym-remove">remove_circle_outline</i>
+        <% } else { %>
+          <span>No</span>
+          <% if (!p1 || !p2) { %>
+            <i class="material-icons right gym-add">add_circle_outline</i>
+          <% } %>
+        <% } %>
+        </td>
+        <td class="edit">
+          <i class="material-icons">edit</i>
+          <i class="material-icons">delete_forever</i></td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<script type="text/javascript" src="/js/trainer.js" defer></script>

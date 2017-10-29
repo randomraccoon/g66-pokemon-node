@@ -173,7 +173,7 @@ __EXAMPLE:__ If you have a Raichu with an id of 22 in the database and you click
 __NOTE:__ Your database should _always_ be updated to have the current `in_gym`
 status of _all_ Pokémon.
 
-__#10__
+~~__#10__~~ COMPLETE
 
 ```
 As a user
@@ -183,7 +183,7 @@ And less than 2 Pokémon are 'in the gym'
 Then I see a link 'assign to gym' next to every Pokémon that is not 'in the gym'
 ```
 
-__#11__
+~~__#11__~~ COMPLETE
 
 ```
 When I visit the Pokémon home page
@@ -191,7 +191,7 @@ And I see all Pokémon
 And there are already 2 Pokémon 'in the gym'
 Then I do not see 'assign to gym' links for any other Pokémon
 ```
-__#12__
+~~__#12__~~ COMPLETE
 
 ```
 When I go to the Pokémon home page
@@ -211,7 +211,7 @@ When I visit /trainers
 Then I see a list of all Trainers
 ```
 
-__#2__
+~~__#2__~~ COMPLETE
 
 ```
 When I click on the name of a Trainer

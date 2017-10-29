@@ -15,7 +15,7 @@
     <th><span class="hide-on-small-only">Species</span></th>
     <th>Trainer</th>
     <th>CP</th>
-    <th>Gym</th>
+    <th>In Gym</th>
     <th>Edit</th>
   </thead>
   <tbody>
@@ -33,7 +33,16 @@
         <td><span class="hide-on-small-only"><%= p.species %></span></td>
         <td><%= p.trainer %></td>
         <td><%= p.cp %></td>
-        <td><%= p.in_gym %></td>
+        <td>
+        <% if (p.in_gym) { %>
+          <span>Yes</span><i class="material-icons right gym-remove">remove_circle</i>
+        <% } else { %>
+          <span>No</span>
+          <% if (!p1 || !p2) { %>
+            <i class="material-icons right gym-add">add_circle_outline</i>
+          <% } %>
+        <% } %>
+        </td>
         <td class="edit">
           <i class="material-icons">edit</i>
           <i class="material-icons">delete_forever</i></td>

@@ -4,4 +4,42 @@
 
 <div class="title-container" text="Gym"></div>
 
-<p>I'm a gym.</p>
+<div id="battle-slots">
+  <% for (let i = 0; i < players.length; i++ ) { let p = players[i]; %>
+    <div class="fighter center-align">
+      <% if (p.id) { %>
+        <img
+        <% if (+p.species_id <= 721) { %>
+          src="http://www.pokestadium.com/sprites/xy/<%= p.image_name %>.gif"
+        <% } else { %>
+          src="https://img.pokemondb.net/sprites/sun-moon/dex/normal/<%= p.image_name %>.png"
+        <% } %>
+        alt="<%= p.species %>">
+        <span class="fighterName"><%= p.name %></span>
+        <span class="fighterCP"><%= p.cp %></span>
+      <% } else { %>
+        <form action="/gym/add" method="post">
+          <div class="input-field">
+            <select class="validate" name="id" pattern="^\d+$" required>
+              <option value="" selected disabled></option>
+              <% for (let pmn of pokemon) { %>
+                <option value="<%= pmn.id %>"><%= pmn.name %> - <%= pmn.species %> (<%= pmn.trainer %>)</option>
+              <% } %>
+            </select>
+            <label for="id" data-error="Select from List">Select Pokemon</label>
+          </div>
+          <button class="btn" type="submit">Add</button>
+        </form>
+      <% } %>
+    </div>
+    <% if (i === 0) { %>
+      <div class="filler valign-wrapper center-align"><h3 class="center-align">vs.</h3></div>
+    <% } %>
+  <% } %>
+</div>
+<% if (players[0].id && players[1].id) { %>
+<button class="btn red" type="button">Battle</button>
+<% } %>
+<% if (players[0].id || players[1].id) { %>
+<button class="btn blue" type="button">Reset</button>
+<% } %>

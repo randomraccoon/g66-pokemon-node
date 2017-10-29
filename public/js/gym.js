@@ -1,4 +1,4 @@
-window.onload = ()=> {
-  const navLink = document.querySelector('.nav-wrapper > ul > li:nth-child(3)');
-  navLink.classList.add('active');
-}
+$(document).ready(() => {
+  $('.nav-wrapper > ul > li:nth-child(3)').addClass('active');
+  $('select').material_select();
+});

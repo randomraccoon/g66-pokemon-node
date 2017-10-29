@@ -95,7 +95,7 @@ i
             transform: scale(1.5);
 }
 
-tbody > tr > td.edit > i:hover
+table > tbody > tr > td > i:hover
 {
     -webkit-transform: scale(2);
             transform: scale(2);
@@ -103,17 +103,17 @@ tbody > tr > td.edit > i:hover
     opacity: 1 ;
 }
 
-tr:hover > td.edit > i
+tbody > tr:hover > td > i
 {
     opacity: .5;
 }
 
-td.edit > i
+table > tbody > tr > td > i
 {
     opacity: .2;
 }
 
-td.edit > i:last-child
+table > tbody > tr > td.edit > i
 {
     margin-left: 20px;
 }
@@ -164,6 +164,31 @@ table#pokemon-info > tbody > tr > td:first-child::after
 .form-row
 {
     display: none;
+}
+
+#battle-slots
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#battle-slots > div
+{
+    -webkit-box-flex: 1;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+
+    min-width: 100px;
+
+    text-align: center;
+}
+
+#battle-slots > div > img
+{
+    display: block;
 }
 
 /*Just in case you're wondering, I wrote this.*/

@@ -6,6 +6,7 @@ module.exports = {
       error: req.session.error,
       message: req.session.message
     };
+    console.log(JSON.stringify(returnObj));
     req.session.error = null;
     req.session.message = null;
     knex.raw(`
@@ -15,6 +16,7 @@ module.exports = {
       ORDER BY t.name`)
       .then(resultObj => {
         returnObj.pokemon = resultObj.rows;
+        updateCookies(req.session, returnObj.pokemon);
         knex.raw(`
           SELECT t.id, t.name, count(p.id) AS pokemon_count FROM trainers AS t
           LEFT JOIN pokemon AS p ON (t.id = p.trainer_id)
@@ -26,6 +28,8 @@ module.exports = {
               .select('id','name','description')
               .then(speciesArr => {
                 returnObj.species = speciesArr;
+                returnObj.p1 = req.session.p1;
+                returnObj.p2 = req.session.p2;
                 // console.log(JSON.stringify(returnObj, null, 2));
                 res.render('pages/pokemon', returnObj);
               })
@@ -167,4 +171,9 @@ module.exports = {
 function cleanSpeciesInput(speciesInput) {
   //removes all non-numeric characters and converts to number
   return +(speciesInput.replace(/\D/g, ''));
+}
+
+function updateCookies(session, pokemonArr) {
+  let gym = pokemonArr.filter(p=>p.in_gym).map(p=>p.id);
+  [session.p1, session.p2] = gym.concat([null, null]);
 }

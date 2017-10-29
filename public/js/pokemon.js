@@ -10,6 +10,8 @@ $(document).ready(() => {
   $('tr:not(:last-child)').click(viewPokemon);
   $('td.edit > i:first-child').click(editPokemon);
   $('td.edit > i:last-child').click(deletePokemon);
+  $('i.gym-add').click(gymAdd);
+  $('i.gym-remove').click(gymRemove);
 
   let autocompleteData = {};
 
@@ -24,19 +26,6 @@ $(document).ready(() => {
     minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
   });
 });
-
-function toggleForm() {
-  if (icon.text() === 'expand_more') {
-    icon.text('expand_less');
-    addBtnText.text('Hide');
-    addPokemonForm.show();
-    addPokemonForm.find('input[name="name"]').focus();
-  } else {
-    icon.text('expand_more');
-    addBtnText.text('Add new Pokémon');
-    addPokemonForm.hide();
-  }
-};
 
 function viewPokemon(ev) {
   let pokemonId = ev.target.parentNode.id;
@@ -54,3 +43,28 @@ function deletePokemon(ev) {
   let pokemonId = ev.target.parentNode.parentNode.id;
   window.location.href = `/pokemon/del/${pokemonId}`;
 }
+
+function gymAdd(ev) {
+  ev.stopPropagation();
+  let pokemonId = ev.target.parentNode.parentNode.id;
+  window.location.href = `/gym/add/${pokemonId}`;
+}
+
+function gymRemove(ev) {
+  ev.stopPropagation();
+  let pokemonId = ev.target.parentNode.parentNode.id;
+  window.location.href = `/gym/del/${pokemonId}`;
+}
+
+function toggleForm() {
+  if (icon.text() === 'expand_more') {
+    icon.text('expand_less');
+    addBtnText.text('Hide');
+    addPokemonForm.show();
+    addPokemonForm.find('input[name="name"]').focus();
+  } else {
+    icon.text('expand_more');
+    addBtnText.text('Add new Pokémon');
+    addPokemonForm.hide();
+  }
+};

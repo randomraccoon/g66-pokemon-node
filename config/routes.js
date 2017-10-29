@@ -7,6 +7,8 @@ module.exports = function(app){
 
   app.use(log);
 
+  app.get('/error', main.error);
+
   app.get('/', pokemon.viewAll);
 
   app.get('/pokemon', pokemon.viewAll);
@@ -21,17 +23,21 @@ module.exports = function(app){
 
   app.get('/pokemon/del/:id', pokemon.delete);
 
+  app.get('/gym/add/:id', gym.add);
+
+  app.post('/gym/add', gym.addPost)
+
+  app.get('/gym/del/:id', gym.remove)
+
   app.get('/trainers', trainers.viewAll);
 
-  app.post('/trainers', trainers.create);
+  app.get('/trainers/:id', trainers.viewOne);
 
-  // app.post('/trainers/:id', trainers.update);
+  app.post('/trainers', trainers.create);
 
   app.get('/trainers/del/:id', trainers.delete);
 
   app.get('/gym', gym.index);
-
-  app.get('/error', main.error);
 
   app.get('/pokedex', main.pokedex);
 
