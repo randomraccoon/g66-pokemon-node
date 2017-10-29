@@ -1,5 +1,5 @@
 exports.up = (knex, Promise) => {
-  return knex.schema.createTable('pokemon', table => {
+  return knex.schema.alterTable('pokemon', table => {
     table.increments();
     table.string('name').notNullable();
     table.integer('species_id')
