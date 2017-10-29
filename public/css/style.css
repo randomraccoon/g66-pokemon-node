@@ -209,5 +209,5 @@ div.title-container::after
 {
     font-family: 'pokemon-solid';
 
-    src: url('../fonts/Pokemon-solid.ttf')  format('truetype');
+    src: url('../fonts/Pokemon-Solid.ttf')  format('truetype');
 }
